@@ -130,10 +130,15 @@ View (Activity/Fragment) ⇄ ViewModel ⇄ Repository ⇄ Firebase / Room
 
 ## 🚀 Getting Started
 
+### 📥 Option 1: Install the APK
+The easiest way — grab the latest APK directly from the [**Releases**](https://github.com/NipunSingh999/SpendBite/releases) section of this repo and install it on your Android device.
+
+### 🛠️ Option 2: Build from Source
+
 ```bash
 # Clone the repo
-git clone https://github.com/NipunSingh999/spendbite-pro.git
-cd spendbite-pro
+git clone https://github.com/NipunSingh999/SpendBite.git
+cd SpendBite
 
 # Open in Android Studio, then add your own google-services.json
 # (Firebase Console → Project Settings → Add Android App)
