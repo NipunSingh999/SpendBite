@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="24dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Handle indicator -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:background="@color/text_zinc_300" />
+
+        <!-- High-Impact Illustration Area -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="24dp">
+
+            <!-- Decorative background orb -->
+            <View
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:background="@drawable/badge_caution_bg"
+                android:backgroundTint="#F0FDF4"
+                android:alpha="0.8" />
+
+            <!-- Main Illustration Card (Simulated SMS data extraction) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/badge_caution_bg"
+                            android:backgroundTint="@color/brand_surface_container" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <View
+                                android:layout_width="80dp"
+                                android:layout_height="8dp"
+                                android:background="@color/light_gray"
+                                android:layout_marginBottom="4dp" />
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="6dp"
+                                android:background="@color/light_gray" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Extraction rows -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Merchant: Zomato"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="₹350.00"
+                            android:textColor="@color/brand_secondary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_gray"
+                        android:layout_marginVertical="4dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Category: Meals"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:src="@android:drawable/checkbox_on_background"
+                            app:tint="@color/brand_primary" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Floating auto-tracking badge -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_bolt"
+                        app:tint="@color/amber_caution" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Auto-Tracking"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <!-- Content Area -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Automate Your Savings"
+            android:textColor="@color/brand_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="SpendBite instantly parses bank notifications and SMS to track your food and grocery spending without a single manual entry."
+            android:textColor="@color/text_zinc_500"
+            android:textSize="13sp"
+            android:lineSpacingMultiplier="1.25" />
+
+        <!-- Benefit Grid -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_outline_bg"
+                android:backgroundTint="#F9FAFB"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginEnd="6dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_shield"
+                    app:tint="@color/brand_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Secure Privacy"
+                    android:textColor="@color/text_zinc_900"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_outline_bg"
+                android:backgroundTint="#F9FAFB"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_speed"
+                    app:tint="@color/brand_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Real-time Sync"
+                    android:textColor="@color/text_zinc_900"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Actions -->
+        <Button
+            android:id="@+id/btn_grant_access"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_accent_bg"
+            android:fontFamily="sans-serif-medium"
+            android:text="Grant Access"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_arrow_forward"
+            app:iconTint="@color/white"
+            app:iconGravity="textEnd" />
+
+        <Button
+            android:id="@+id/btn_maybe_later"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:text="Maybe Later"
+            android:textAllCaps="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Note: Manual tracking will be required without access."
+            android:textColor="@color/text_zinc_400"
+            android:textSize="11sp"
+            android:fontStyle="italic" />
+
+        <!-- Security Trust Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_lock"
+                app:tint="@color/text_zinc_400" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Military-grade encryption for all data"
+                android:textColor="@color/text_zinc_400"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

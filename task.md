@@ -1,0 +1,33 @@
+- [x] Implement Calendar Month SMS sync constraint
+  - [x] Set SMSSyncManager boundary to start of current calendar month
+- [x] Create custom MoM comparison Bar Chart view
+  - [x] Implement MonthlyBarChartView.kt drawing vertical rounded gradient bars and month labels
+- [x] Add History Bento Card to Profile layout
+  - [x] Add cv_history_archive CardView to fragment_profile.xml
+- [x] Create Spending History dialog layouts & BottomSheet controller
+  - [x] Create dialog_spending_history.xml layout with chart and recycler list
+  - [x] Create item_history_month.xml layout with nested recycler views
+  - [x] Create SpendingHistoryBottomSheet.kt containing date parsing & bucketing logic
+- [x] Connect Profile screen click listener to launch History BottomSheet
+- [x] Fix default year parsing fallback bug (preventing 1970 year alignment on parsed transactions)
+- [x] Fix bottom sheet vertical scrolling and layout clipping using NestedScrollView wrapper and STATE_EXPANDED setup
+- [x] Implement dynamic Subscription ROI and Savings calculations from live user transactions
+  - [x] Observe real-time user transactions in SubscriptionsFragment
+  - [x] Calculate delivery fee savings, food discounts, and platform fee waivers dynamically based on actual purchase habits
+  - [x] Dynamically compute and display breakeven order index (e.g. Order #3)
+  - [x] Update membership details dialog to display live dynamic savings breakdown summaries
+- [x] Filter Dashboard/Analytics calculations and widgets to only sum current calendar month transactions
+  - [x] Add isCurrentCalendarMonth helper check inside DashboardFragment
+  - [x] Update total budget gauges, category donuts, merchant bars, projections, and line charts dynamically
+- [x] Filter the Recent Transactions feed on the main Dashboard to show current month's transactions only
+- [x] Fix transaction list nested scrolling inside expanded month cards:
+  - [x] Remove root NestedScrollView from dialog_spending_history.xml to prevent scroll event interception
+  - [x] Restrict inner rv_month_transactions to 180dp height and enable nestedScrollingEnabled=true to scroll internally inside the card
+  - [x] Register OnItemTouchListener on inner transaction recycler view to request parent disallow intercept on down touches (preventing jerky scrolling and freezing)
+- [x] Bind budget breach alert notification toggle switch state
+  - [x] Check settings.breachAlerts before displaying budget milestone alerts in DashboardFragment
+  - [x] Check settings.breachAlerts in background SMSReceiver notifications checks
+- [x] Rename application label from SpendBite Pro to SpendBite inside resources and settings
+- [x] Change all occurrences of "SpendBite Pro" to "SpendBite" / `@string/app_name` across layouts and UI text components
+  - [x] Update app header title in navigation drawer dialog_navigation_drawer.xml
+- [x] Compile and verify build

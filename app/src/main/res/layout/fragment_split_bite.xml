@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_zinc_50">
+
+    <!-- Header bar -->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/bg_zinc_50"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/btn_menu"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Split-Bite Hub"
+            android:textColor="@color/brand_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/light_gray">
+
+            <ImageView
+                android:id="@+id/iv_top_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/brand_primary" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <!-- CONTAINER 1: GROUPS DASHBOARD (Visible by default) -->
+    <LinearLayout
+        android:id="@+id/ll_groups_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_header">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Header Section with Create Button -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GROUP FINANCES"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Split-Bite Hub"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_create_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/button_accent_bg"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingHorizontal="14dp"
+                        android:text="+ Create Group"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:backgroundTint="@null" />
+                </RelativeLayout>
+
+                <!-- Bento Card 1: Overall Balance Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_projection_bg"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL SETTLEMENT"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_total_settlement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="₹1,240.50"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_trending_up"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:id="@+id/tv_settlement_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="You are owed by others"
+                            android:textColor="#E6FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Split breakdown columns -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <!-- You Owe Box -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_projection_outline"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="You Owe"
+                                android:textColor="#B3FFFFFF"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tv_overall_you_owe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="monospace"
+                                android:text="₹42.00"
+                                android:textColor="#FFF1F2"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Owed to You Box -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/btn_projection_outline"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Owed to You"
+                                android:textColor="#B3FFFFFF"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tv_overall_owed_to_you"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="monospace"
+                                android:text="₹1,282.50"
+                                android:textColor="#DCFCE7"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Active Groups section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Active Groups"
+                    android:textColor="@color/text_zinc_900"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Horizontal Groups list -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_groups"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_group" />
+
+                <!-- Shared Ledger Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Shared Ledger"
+                                android:textColor="@color/brand_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Global history across all circles"
+                                android:textColor="@color/text_zinc_500"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btn_view_ledger_details"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="VIEW ALL"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/light_gray" />
+
+                    <!-- Global Ledger items -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_shared_ledger"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_ledger" />
+
+                </LinearLayout>
+
+                <!-- Quick Settlements Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/card_bg"
+                    android:backgroundTint="@color/surface_container_low"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quick Settlements"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Tap settle to automatically offset net balances"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="12sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_settlements"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_settlement" />
+
+                </LinearLayout>
+
+                <!-- Activity Feed Card (Dotted-like border using outline bg) -->
+                <LinearLayout
+                    android:id="@+id/ll_activity_stream_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ ACTIVITY STREAM"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <!-- Dynamic Container for Activity Rows -->
+                    <LinearLayout
+                        android:id="@+id/ll_activity_stream_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
+                <!-- Spacer bottom -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <!-- CONTAINER 2: GROUP DETAILS SCREEN (Hidden by default) -->
+    <LinearLayout
+        android:id="@+id/ll_group_detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_header">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/btn_back_to_groups"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:text="&lt; Groups"
+                android:textColor="@color/text_zinc_500"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_group_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Flat 402 roommates"
+                android:textColor="@color/text_zinc_900"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_add_shared_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_accent_bg"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="10dp"
+                android:text="+ Add Bill"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:backgroundTint="@null" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Group Description Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_group_detail_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shared apartment groceries and dining bills"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="13sp" />
+
+                    <!-- Members List -->
+                    <LinearLayout
+                        android:id="@+id/ll_members_avatars"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Members:"
+                            android:textColor="@color/text_zinc_400"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btn_manage_members"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="[Manage]"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true" />
+                        
+                        <!-- Dynamic avatars will be loaded here -->
+                    </LinearLayout>
+
+                    <!-- Delete Circle Action -->
+                    <TextView
+                        android:id="@+id/btn_delete_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_gravity="end"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="6dp"
+                        android:text="[Delete Circle]"
+                        android:textColor="@color/red_error"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Net Balances Summary Card -->
+                <LinearLayout
+                    android:id="@+id/ll_group_debt_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <View
+                        android:id="@+id/view_debt_color_bar"
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/amber_caution" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Net Group Settlement"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_group_detail_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="You owe Alex ₹150.00"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Bills Ledgers Header -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Shared Bill Ledgers"
+                        android:textColor="@color/text_zinc_900"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btn_clear_ledger_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="6dp"
+                        android:text="[Clear History]"
+                        android:textColor="@color/red_error"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Shared ledger items recyclerview -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_ledger_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_ledger" />
+
+                <!-- Spacer bottom -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

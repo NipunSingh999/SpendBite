@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_zinc_50">
+
+    <!-- Top App Bar -->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/bg_zinc_50"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/btn_menu"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/app_name"
+            android:textColor="@color/brand_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/light_gray">
+
+            <ImageView
+                android:id="@+id/iv_top_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/brand_primary" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Page Headline -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Subscription ROI"
+                android:textColor="@color/brand_primary"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Analyze the true value of your food delivery memberships."
+                android:textColor="@color/text_zinc_500"
+                android:textSize="14sp" />
+
+            <!-- Dynamic warnings alerts container -->
+            <LinearLayout
+                android:id="@+id/ll_subscription_warnings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <!-- Cumulative ROI Summary Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CUMULATIVE VALUE"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="ROI Summary"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- PROFITABLE Status Badge -->
+                    <LinearLayout
+                        android:id="@+id/ll_roi_status_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/badge_caution_bg"
+                        android:backgroundTint="#a0f399"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_trending_up"
+                            app:tint="#217128" />
+
+                        <TextView
+                            android:id="@+id/tv_roi_status_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="PROFITABLE"
+                            android:textColor="#217128"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Saved display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_roi_saved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="₹1,420"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="saved this year"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- ROI Ratio Progress Bar -->
+                <ProgressBar
+                    android:id="@+id/pb_roi_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="16dp"
+                    android:progress="75"
+                    android:progressDrawable="@drawable/progress_bar_emerald" />
+
+                <!-- Costs & Benefits legends -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_roi_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Cost: ₹699"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_roi_benefit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Total Benefit: ₹2,119"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Monthly Net Gain row -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/light_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monthly Net Gain"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="2dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_trending_up"
+                                app:tint="@color/brand_secondary" />
+
+                            <TextView
+                                android:id="@+id/tv_roi_net_gain"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="₹340"
+                                android:textColor="@color/brand_secondary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_roi_insights"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:background="@drawable/button_accent_bg"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingHorizontal="12dp"
+                        android:text="View Insights"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:backgroundTint="@null" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Membership Configuration Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Memberships"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/light_gray" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_subscriptions_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_subscription_control" />
+
+                <!-- Add New Membership Trigger Button -->
+                <TextView
+                    android:id="@+id/btn_add_subscription_trigger"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="+ Add New Membership"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Small Insight Chip (Lightbulb) -->
+            <LinearLayout
+                android:id="@+id/ll_insight_chip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_bg"
+                android:backgroundTint="@color/tertiary_fixed"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_info_details"
+                    app:tint="@color/brand_primary" />
+
+                <TextView
+                    android:id="@+id/tv_insight_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="You're saving 2.4x the cost of your Zomato membership."
+                    android:textColor="@color/on_tertiary_fixed_variant"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Savings Breakdown Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Savings Breakdown"
+                android:textColor="@color/brand_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <!-- Delivery Fees Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:backgroundTint="@color/surface_container_low"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery Fees"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="₹840"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_delivery_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="14 orders avoided fees"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Extra Discounts Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:backgroundTint="@color/surface_container_low"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Extra Discounts"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_discounts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="₹450"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Gold exclusive promos"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Platform Fees Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:backgroundTint="@color/surface_container_low"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Platform Fees"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_platform"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="₹130"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_platform_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Waived on 10 orders"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Breakeven Point Card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:backgroundTint="@color/surface_container_low"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Breakeven Point"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_breakeven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Order #3"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_breakdown_breakeven_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Achieved on 7th Oct"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/btn_save_subs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/button_emerald_bg"
+                android:fontFamily="sans-serif-medium"
+                android:text="Apply Membership Changes"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="@null" />
+
+            <!-- Bottom Spacer -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <!-- Main Payment Bottom Sheet -->
+    <LinearLayout
+        android:id="@+id/ll_upi_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- Drag grab handle -->
+        <View
+            android:layout_width="48dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/light_gray" />
+
+        <!-- Header Row -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:id="@+id/btn_close_payment"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="6dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@color/text_zinc_500" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Settle Debt"
+                android:textColor="@color/brand_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Scrollable Content -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="16dp">
+
+                <!-- Recipient Avatar -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="40dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/light_gray"
+                    android:innerRadius="0dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/brand_surface_container">
+
+                    <ImageView
+                        android:id="@+id/iv_upi_avatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        app:tint="@color/brand_primary" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Recipient Name & VPA -->
+                <TextView
+                    android:id="@+id/tv_upi_payee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Alex M."
+                    android:textColor="@color/text_zinc_900"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_upi_vpa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="alex.m@upi"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/ic_verified"
+                        app:tint="@color/brand_secondary" />
+                </LinearLayout>
+
+                <!-- Amount Section -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="2dp" />
+
+                    <TextView
+                        android:id="@+id/tv_upi_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="1,450.00"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:fontFeatureSettings="tnum" />
+                </LinearLayout>
+
+                <!-- Payment Secure Badge -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/badge_caution_bg"
+                    android:backgroundTint="#E8F5E9"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_shield"
+                        app:tint="@color/brand_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="Payment Secure"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Note Input Area -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Add a note"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp">
+
+                        <EditText
+                            android:id="@+id/et_payment_note"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:background="@drawable/button_outline_bg"
+                            android:backgroundTint="#F3F4F6"
+                            android:paddingHorizontal="12dp"
+                            android:text="Split-Bite: Weekly Groceries"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="13sp"
+                            android:inputType="text"
+                            android:focusable="false"
+                            android:clickable="false" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="12dp"
+                            android:src="@android:drawable/ic_menu_edit"
+                            app:tint="@color/text_zinc_500" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- Payment Method Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/card_bg"
+                    android:backgroundTint="#F9FAFB"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/button_outline_bg"
+                        android:backgroundTint="@color/light_gray"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_bank"
+                            app:tint="@color/brand_primary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HDFC Bank - 1234"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checking Account"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="4dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Bottom Controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F3F4F6"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_pay_now"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/button_accent_bg"
+                android:fontFamily="sans-serif-medium"
+                android:text="Pay Now"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:icon="@drawable/ic_lock"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart" />
+
+            <Button
+                android:id="@+id/btn_cancel_payment"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="4dp"
+                android:text="Cancel Payment"
+                android:textAllCaps="false"
+                android:textColor="@color/text_zinc_500"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Overlay Loading & Success State -->
+    <LinearLayout
+        android:id="@+id/ll_upi_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="480dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Loading State -->
+        <LinearLayout
+            android:id="@+id/ll_upi_loading_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ProgressBar
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:indeterminateTint="@color/brand_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Processing payment..."
+                android:textColor="@color/text_zinc_900"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Fullscreen Success State -->
+        <LinearLayout
+            android:id="@+id/ll_upi_success_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/brand_primary"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_verified"
+                app:tint="@color/brand_secondary"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Successful"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_success_amount_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Sent ₹1,450.00 to Alex M."
+                android:textColor="#E0E0FF"
+                android:textSize="15sp" />
+
+            <!-- Receipt Box -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/button_outline_bg"
+                android:backgroundTint="#1AFFFFFF"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transaction ID"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_receipt_txn_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="monospace"
+                        android:text="#TXN9842105"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_receipt_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="monospace"
+                        android:text="Jul 05, 4:28 PM"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_back_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/button_outline_bg"
+                android:backgroundTint="@color/white"
+                android:text="Back to Dashboard"
+                android:textAllCaps="false"
+                android:textColor="@color/brand_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/card_bg"
+    android:layout_margin="16dp">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:id="@+id/iv_input_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_profile"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:id="@+id/tv_input_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Change Nickname"
+            android:textColor="@color/brand_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Message Body -->
+    <TextView
+        android:id="@+id/tv_input_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your new nickname:"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Styled Input field wrapper -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/input_underlined_bg"
+        android:layout_marginBottom="24dp">
+
+        <EditText
+            android:id="@+id/et_dialog_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="Nickname"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/text_zinc_900"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- Button Actions Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_input_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_outline_bg"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/text_zinc_500"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="12dp"
+            android:paddingHorizontal="16dp" />
+
+        <Button
+            android:id="@+id/btn_input_positive"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_accent_bg"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
+</LinearLayout>

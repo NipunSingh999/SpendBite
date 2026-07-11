@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_zinc_50">
+
+    <!-- Top App Bar -->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/bg_zinc_50"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/btn_menu"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/app_name"
+            android:textColor="@color/brand_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/light_gray">
+
+            <ImageView
+                android:id="@+id/iv_top_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/brand_primary" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Title & User Details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PROFILE CONFIG"
+                    android:textColor="@color/text_zinc_500"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Circular Profile Photo Container -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_profile_photo"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="48dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/light_gray">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_profile_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_profile"
+                            app:tint="@color/brand_primary" />
+
+                        <!-- Photo Edit Icon Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="#80000000" />
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="5dp"
+                            android:src="@android:drawable/ic_menu_camera"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Name & Edit Button Row -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_profile_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Alex"
+                        android:textColor="@color/brand_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/iv_edit_nickname"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="8dp"
+                        android:padding="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@android:drawable/ic_menu_edit"
+                        app:tint="@color/brand_primary" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_profile_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="gastronome@spendbite.pro"
+                    android:textColor="@color/text_zinc_500"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_profile_uid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Account UID: demo_user"
+                    android:textColor="@color/text_zinc_400"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Card 1: Total Limit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Monthly Limit"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <!-- Large numeric edit box -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/button_outline_bg"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_currency_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="₹"
+                        android:textColor="@color/text_zinc_900"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_total_limit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/tv_currency_symbol"
+                        android:layout_marginStart="8dp"
+                        android:background="@null"
+                        android:fontFamily="monospace"
+                        android:hint="0.00"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/text_zinc_900"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="This figure represents your absolute ceiling for all expenses including groceries, meal plans, and household bills."
+                    android:textColor="@color/text_zinc_500"
+                    android:textSize="12sp"
+                    android:lineSpacingMultiplier="1.2" />
+            </LinearLayout>
+
+            <!-- Card 2: Category Sub-limits (Seekbars) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category Sub-limits"
+                    android:textColor="@color/text_zinc_900"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Meals row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_utensils"
+                                app:tint="@color/brand_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Meals"
+                                android:textColor="@color/text_zinc_900"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Value bubble badge -->
+                        <TextView
+                            android:id="@+id/tv_meals_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:background="@drawable/badge_caution_bg"
+                            android:backgroundTint="@color/brand_surface_container"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:text="₹600" />
+                    </RelativeLayout>
+
+                    <SeekBar
+                        android:id="@+id/sb_meals_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="2000"
+                        android:progress="600"
+                        android:progressTint="@color/brand_primary"
+                        android:thumbTint="@color/brand_primary" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:paddingHorizontal="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹0"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="₹2,000"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- Groceries row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_shopping"
+                                app:tint="@color/brand_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Groceries"
+                                android:textColor="@color/text_zinc_900"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Value bubble badge -->
+                        <TextView
+                            android:id="@+id/tv_groceries_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:background="@drawable/badge_caution_bg"
+                            android:backgroundTint="@color/brand_surface_container"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:text="₹850" />
+                    </RelativeLayout>
+
+                    <SeekBar
+                        android:id="@+id/sb_groceries_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="2000"
+                        android:progress="850"
+                        android:progressTint="@color/brand_primary"
+                        android:thumbTint="@color/brand_primary" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:paddingHorizontal="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹0"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="₹2,000"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Card: Monthly History Archive -->
+            <LinearLayout
+                android:id="@+id/cv_history_archive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:backgroundTint="@null">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spending History &amp; Archives"
+                        android:textColor="@color/text_zinc_900"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="View month-on-month trend charts and past transactions."
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_media_play"
+                    app:tint="@color/brand_primary" />
+            </LinearLayout>
+
+            <!-- Card 3: Breach Alerts -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Budget Breach Alerts"
+                        android:textColor="@color/text_zinc_900"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Get notified at 80% and 100% of limits."
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_breach_alerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/brand_secondary"
+                    app:trackTint="@color/light_gray" />
+            </LinearLayout>
+
+            <!-- Save Action Button -->
+            <Button
+                android:id="@+id/btn_save_budget"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/button_accent_bg"
+                android:fontFamily="sans-serif-medium"
+                android:text="Save Settings"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:icon="@android:drawable/ic_menu_save"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Changes will be applied to the current billing cycle immediately."
+                android:textColor="@color/text_zinc_400"
+                android:textSize="11sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

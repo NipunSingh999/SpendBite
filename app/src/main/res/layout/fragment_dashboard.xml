@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_zinc_50">
+
+    <!-- Top App Bar -->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/bg_zinc_50"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/btn_menu"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/app_name"
+            android:textColor="@color/brand_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Circular User Avatar -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="0dp"
+            app:cardBackgroundColor="@color/light_gray">
+
+            <ImageView
+                android:id="@+id/iv_top_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/sym_def_app_icon" />
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TOTAL SPENDING"
+                                android:textColor="@color/text_zinc_500"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_total_spent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="₹42,850.00"
+                                android:textColor="@color/brand_primary"
+                                android:textSize="32sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MONTHLY LIMIT"
+                                android:textColor="@color/text_zinc_500"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_budget_limit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:text="₹55,000.00"
+                                android:textColor="@color/text_zinc_900"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!-- Limit Progress bar -->
+                    <ProgressBar
+                        android:id="@+id/pb_total_budget"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp"
+                        android:layout_marginTop="16dp"
+                        android:progress="78"
+                        android:progressDrawable="@drawable/progress_bar_amber" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp">
+
+                        <!-- Approaching Badge -->
+                        <TextView
+                            android:id="@+id/tv_badge_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/badge_caution_bg"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:text="Approaching Limit (78%)"
+                            android:textColor="@color/brand_on_tertiary_container"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_budget_remaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="₹12,150 remaining"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="13sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!-- Estimated Forecast Projection Card -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/card_projection_bg"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ESTIMATED MONTHLY"
+                            android:textColor="#B3FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_projection_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="₹52,400"
+                            android:textColor="@color/white"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_projection_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Based on your current daily average of ₹0."
+                            android:textColor="#E6FFFFFF"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_forecast"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/btn_projection_outline"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="View Detailed Forecast"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            app:backgroundTint="@null" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- SMS Auto-Sync Card -->
+            <LinearLayout
+                android:id="@+id/ll_sms_sync_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- Status indicator dot -->
+                        <View
+                            android:id="@+id/view_sms_status_dot"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/badge_caution_bg"
+                            android:backgroundTint="@color/text_zinc_400" />
+
+                        <TextView
+                            android:id="@+id/tv_sms_status_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="SMS Transaction Link"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_sms_status_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Disabled"
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Auto-track Swiggy, Zomato, Blinkit, and Zepto charges directly from your bank alerts."
+                    android:textColor="@color/text_zinc_500"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_sms_sync"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/button_accent_bg"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Link SMS Ledger"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:backgroundTint="@null"
+                    app:icon="@android:drawable/ic_popup_sync"
+                    app:iconTint="@color/white"
+                    app:iconGravity="textStart" />
+
+            </LinearLayout>
+
+            <!-- Bento Block 2: Analytics Splits & Top Merchants -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <!-- Donut Category Split Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Category Split"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/ic_analytics"
+                            app:tint="@color/text_zinc_500" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/light_gray" />
+
+                    <!-- Donut Chart Ring -->
+                    <FrameLayout
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="20dp">
+
+                        <!-- Dynamic Multi-Category Donut Chart View -->
+                        <com.example.spendbitepro.DonutChartView
+                            android:id="@+id/pb_donut_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <!-- Centered text -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_donut_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Food"
+                                android:textColor="@color/text_zinc_500"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_donut_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="64%"
+                                android:textColor="@color/brand_primary"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <!-- Legends -->
+                    <LinearLayout
+                        android:id="@+id/ll_category_legends"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:background="@drawable/button_accent_bg"
+                                    android:backgroundTint="@color/brand_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="Meals"
+                                    android:textColor="@color/text_zinc_500"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_legend_meals"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="monospace"
+                                android:text="₹27,420"
+                                android:textColor="@color/text_zinc_900"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:background="@drawable/button_accent_bg"
+                                    android:backgroundTint="@color/brand_secondary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="Groceries"
+                                    android:textColor="@color/text_zinc_500"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_legend_groceries"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="monospace"
+                                android:text="₹15,430"
+                                android:textColor="@color/text_zinc_900"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Top Merchants Bars Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Top Merchants"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/ic_split"
+                            app:tint="@color/text_zinc_500" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/light_gray" />
+
+                    <!-- Bars list -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical">
+
+                        <!-- Zomato Bar -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Zomato"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_merchant_zomato_val"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="monospace"
+                                    android:text="₹0"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <ProgressBar
+                                android:id="@+id/pb_merchant_zomato"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/progress_bar_emerald" />
+                        </LinearLayout>
+
+                        <!-- Swiggy Bar -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Swiggy"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_merchant_swiggy_val"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="monospace"
+                                    android:text="₹0"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <ProgressBar
+                                android:id="@+id/pb_merchant_swiggy"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/progress_bar_emerald" />
+                        </LinearLayout>
+
+                        <!-- Blinkit Bar -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Blinkit"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_merchant_blinkit_val"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="monospace"
+                                    android:text="₹0"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <ProgressBar
+                                android:id="@+id/pb_merchant_blinkit"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/progress_bar_emerald" />
+                        </LinearLayout>
+
+                        <!-- Zepto Bar -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Zepto"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_merchant_zepto_val"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="monospace"
+                                    android:text="₹0"
+                                    android:textColor="@color/text_zinc_900"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <ProgressBar
+                                android:id="@+id/pb_merchant_zepto"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/progress_bar_emerald" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Spending Trend Sparkline Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Weekly Spending Velocity"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="Past 7 Days"
+                            android:textColor="@color/text_zinc_500"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Daily total spent on meals, groceries, utilities, and memberships."
+                        android:textColor="@color/text_zinc_500"
+                        android:textSize="12sp" />
+
+                    <!-- Custom TrendLineView -->
+                    <com.example.spendbitepro.TrendLineView
+                        android:id="@+id/v_trend_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="16dp" />
+
+                    <!-- Day Labels Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mon" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tue" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wed" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Thu" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fri" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sat" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sun" android:gravity="center" android:textColor="@color/text_zinc_400" android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Recent Transactions Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recent Transactions"
+                            android:textColor="@color/text_zinc_900"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btn_see_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="SEE ALL"
+                            android:textColor="@color/brand_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/light_gray" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_transactions"
+                        android:layout_width="match_parent"
+                        android:layout_height="260dp"
+                        android:layout_marginTop="10dp"
+                        android:nestedScrollingEnabled="true"
+                        tools:listitem="@layout/item_transaction" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Bottom Spacer -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_plus"
+        app:backgroundTint="@color/brand_primary"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

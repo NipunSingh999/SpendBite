@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Top Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:background="@color/text_zinc_300" />
+
+    <!-- Avatar Container -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#F0E0FF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="👋"
+            android:textSize="32sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Header Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-condensed"
+        android:text="What should we call you?"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="We'll use this for your profile and to say hello in notifications."
+        android:textColor="@color/text_zinc_500"
+        android:textSize="14sp" />
+
+    <!-- Input field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nickname"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_outline_bg"
+        android:hint="e.g., Alex"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="16sp" />
+
+    <!-- Action Buttons -->
+    <Button
+        android:id="@+id/btn_nickname_save"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_accent_bg"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
+    <Button
+        android:id="@+id/btn_nickname_skip"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:text="Skip for now"
+        android:textAllCaps="false"
+        android:textColor="@color/brand_primary"
+        android:textSize="14sp"
+        app:backgroundTint="@null" />
+
+</LinearLayout>

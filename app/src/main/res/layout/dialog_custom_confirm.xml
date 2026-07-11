@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/card_bg"
+    android:layout_margin="16dp">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:id="@+id/iv_dialog_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_dialog_alert"
+            app:tint="@color/red_error" />
+
+        <TextView
+            android:id="@+id/tv_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Delete Item"
+            android:textColor="@color/brand_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Message Body -->
+    <TextView
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are you sure you want to proceed?"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Button Actions Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dialog_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_outline_bg"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/text_zinc_500"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="12dp"
+            android:paddingHorizontal="16dp" />
+
+        <Button
+            android:id="@+id/btn_dialog_positive"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_accent_bg"
+            android:text="Delete"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
+</LinearLayout>

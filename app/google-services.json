@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "981571430075",
+    "project_id": "spendbite-pro",
+    "storage_bucket": "spendbite-pro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981571430075:android:11e386c100ce17d1b32b9e",
+        "android_client_info": {
+          "package_name": "com.example.spendbitepro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981571430075-67gd5ln0koqfjn697harsvukb4pekq2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spendbitepro",
+            "certificate_hash": "3b182d67359490bee18f7223bd679fb9f9f6d482"
+          }
+        },
+        {
+          "client_id": "981571430075-6d8j5hp51lsesn0qsp8t24ipa4g0bi84.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spendbitepro",
+            "certificate_hash": "2bf5f41cbf08f1975c9e2df807dd0d81111a01d7"
+          }
+        },
+        {
+          "client_id": "981571430075-893dmm65b1oj29ppb6db8dpebloptdsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd3sTADt8AfDT_LJOSHbzPL9GQQ84s1kQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981571430075-893dmm65b1oj29ppb6db8dpebloptdsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

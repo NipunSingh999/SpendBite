@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Icon Background Circle -->
+            <FrameLayout
+                android:id="@+id/fl_sub_icon_bg"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/button_accent_bg">
+
+                <ImageView
+                    android:id="@+id/iv_sub_icon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_utensils"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_sub_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_zinc_900"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Subscription Name" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_sub_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sub_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Monthly Fee (₹)"
+            android:textColor="@color/text_zinc_500"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_sub_fee"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:background="@drawable/button_outline_bg"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/text_zinc_900"
+            android:textSize="13sp"
+            tools:text="149" />
+    </LinearLayout>
+</LinearLayout>

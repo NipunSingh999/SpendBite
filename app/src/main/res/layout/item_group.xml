@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    android:background="@drawable/card_bg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Row: Icon and Status Badge -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Category Icon -->
+        <FrameLayout
+            android:id="@+id/fl_group_icon_bg"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/button_accent_bg"
+            android:backgroundTint="@color/icon_tint_grocery_bg">
+
+            <ImageView
+                android:id="@+id/iv_group_icon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_home"
+                app:tint="@color/brand_secondary" />
+        </FrameLayout>
+
+        <!-- Status Badge -->
+        <TextView
+            android:id="@+id/tv_group_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/badge_caution_bg"
+            android:backgroundTint="@color/icon_tint_grocery_bg"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/brand_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="Settled" />
+    </RelativeLayout>
+
+    <!-- Name & Description -->
+    <TextView
+        android:id="@+id/tv_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed"
+        android:maxLines="1"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Roommates" />
+
+    <TextView
+        android:id="@+id/tv_group_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="13sp"
+        tools:text="3 members • Utility bills" />
+
+    <!-- Member Avatars row -->
+    <LinearLayout
+        android:id="@+id/ll_group_member_avatars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- We'll populate these dynamically in GroupAdapter, similar to SplitBiteFragment! -->
+        <TextView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/button_accent_bg"
+            android:backgroundTint="#E4E4E7"
+            android:gravity="center"
+            android:text="JD"
+            android:textColor="@color/text_zinc_900"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Hidden count field used to preserve interface -->
+    <TextView
+        android:id="@+id/tv_group_members_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

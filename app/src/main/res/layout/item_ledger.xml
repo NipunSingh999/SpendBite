@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/card_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Receipt / Dollar Icon -->
+    <FrameLayout
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_outline_bg">
+
+        <ImageView
+            android:id="@+id/iv_receipt_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_shopping"
+            app:tint="@color/text_zinc_500" />
+    </FrameLayout>
+
+    <!-- Bill Title & Payer -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_ledger_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_zinc_900"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Friday Pizza Night" />
+
+        <TextView
+            android:id="@+id/tv_ledger_paid_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_zinc_500"
+            android:textSize="12sp"
+            tools:text="Paid by You" />
+    </LinearLayout>
+
+    <!-- Bill Amount & Split Status -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_ledger_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_zinc_900"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="₹900.00" />
+
+        <TextView
+            android:id="@+id/tv_ledger_owe_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="Owed ₹300.00"
+            tools:textColor="@color/emerald_success" />
+    </LinearLayout>
+
+</LinearLayout>

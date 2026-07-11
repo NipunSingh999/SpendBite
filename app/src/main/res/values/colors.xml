@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_zinc_50">#fbf9f8</color>
+    <color name="text_zinc_900">#1b1c1c</color>
+    <color name="text_zinc_500">#454652</color>
+    <color name="text_zinc_400">#767683</color>
+    <color name="text_zinc_300">#c6c5d4</color>
+    <color name="emerald_success">#1b6d24</color>
+    <color name="amber_caution">#d68500</color>
+    <color name="red_error">#ba1a1a</color>
+    <color name="purple_active">#000666</color>
+    <color name="light_gray">#eae8e7</color>
+    
+    <!-- Brand Specific -->
+    <color name="brand_primary">#000666</color>
+    <color name="brand_background">#fbf9f8</color>
+    <color name="brand_surface_container">#f0eded</color>
+    <color name="brand_surface_container_lowest">#ffffff</color>
+    <color name="brand_on_tertiary_container">#d68500</color>
+    <color name="brand_secondary">#1b6d24</color>
+
+    <!-- Category Icon Container Tints -->
+    <color name="icon_tint_restaurant_bg">#FFF1F2</color> <!-- Light red/rose -->
+    <color name="icon_tint_grocery_bg">#F0FDF4</color> <!-- Light green -->
+    <color name="icon_tint_delivery_bg">#FFFBEB</color> <!-- Light amber/yellow -->
+
+    <!-- Subscription ROI UI specific -->
+    <color name="tertiary_fixed">#ffddba</color>
+    <color name="on_tertiary_fixed_variant">#663d00</color>
+    <color name="surface_container_low">#f5f3f3</color>
+
+
+</resources>

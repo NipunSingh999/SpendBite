@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@color/text_zinc_300" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Add Culinary Membership"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Name input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Membership Name"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_sub_dialog_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_outline_bg"
+        android:hint="E.g., Zomato Gold, Swiggy One, EatClub"
+        android:inputType="text"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="14sp" />
+
+    <!-- Monthly Fee input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Monthly Fee (₹)"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_sub_dialog_fee"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_outline_bg"
+        android:hint="E.g., 149"
+        android:inputType="number"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="14sp" />
+
+    <!-- Brand Style Selector -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Brand Style / Color"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/sp_sub_dialog_brand"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_outline_bg"
+        android:paddingHorizontal="12dp" />
+
+    <!-- Active Switch -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Activate Membership Now"
+            android:textColor="@color/text_zinc_900"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_sub_dialog_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked="true" />
+    </RelativeLayout>
+
+    <!-- Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_sub_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_outline_bg"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/text_zinc_500"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btn_sub_dialog_add"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1.5"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_accent_bg"
+            android:text="Add Membership"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+
+</LinearLayout>

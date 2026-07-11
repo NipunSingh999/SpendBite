@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Top Handle for Bottom Sheet -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@color/text_zinc_300" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Log Personal Expense"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Merchant Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Merchant Name"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_dialog_merchant"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_outline_bg"
+        android:hint="E.g., Zomato, Nature's Basket"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="14sp" />
+
+    <!-- Amount Input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Amount (₹)"
+        android:textColor="@color/text_zinc_500"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_dialog_amount"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_outline_bg"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/text_zinc_900"
+        android:textSize="14sp" />
+
+    <!-- Row for Category & Payment Method -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textColor="@color/text_zinc_500"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/sp_dialog_category"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_outline_bg"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Method"
+                android:textColor="@color/text_zinc_500"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/sp_dialog_payment"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_outline_bg"
+                android:padding="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Location & Parsing Option -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location (Optional)"
+                android:textColor="@color/text_zinc_500"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_dialog_location"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_outline_bg"
+                android:hint="E.g., Koramangala"
+                android:inputType="text"
+                android:paddingHorizontal="12dp"
+                android:textColor="@color/text_zinc_900"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simulate SMS Parse"
+                android:textColor="@color/text_zinc_500"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_dialog_parsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_outline_bg"
+            android:text="Discard"
+            android:textAllCaps="false"
+            android:textColor="@color/text_zinc_900"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btn_dialog_save"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_emerald_bg"
+            android:text="Save Expense"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+
+</LinearLayout>
