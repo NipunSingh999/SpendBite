@@ -161,6 +161,6 @@ Distributed under the MIT License. See `LICENSE` for details.
 
 <div align="center">
 
-Built by **Nipun Singh** — Android & ML Engineer
+Built by **Nipun Singh**
 
 </div>
